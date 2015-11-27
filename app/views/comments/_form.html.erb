@@ -1,0 +1,8 @@
+<%= form_for [@post, Comment.new] do |f| %>
+<p>
+ <%= f.text_area :content %>
+ </p>
+ <p>
+ <%= f.submit "enviar" %>
+ </p>
+<% end %>
