@@ -1,0 +1,18 @@
+<nav class="navbar navbar-default">
+ <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="<%= root_path %>">Inicio	</a>
+    </div>
+
+	
+	 <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+		<li><%= link_to "salir", destroy_user_session_path, method: "delete" %></li>
+		<% else  %>		
+			<li><a href="<%= new_user_session_path %>">ingresar</a></li>
+			<li><a href="<%= new_user_registration_path %>">registrarse</a></li>
+		<% end %>
+      	</ul>
+    
+ </div>
+</nav>
