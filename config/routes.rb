@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'locations/get_address'
   devise_for :users
   resources :posts do
     resources :comments, only: [:create]
