@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+h2{
+	text-align: center;
+}
+.container{
+	text-align: center;
+}
+.btn-success{
+	text-align: center;
+}
