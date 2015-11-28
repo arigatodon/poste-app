@@ -37,7 +37,20 @@ $(document).on("page:change", function(){
 	$('.js-getlocation').on('click', function(event) {
 		event.preventDefault();
 		getLocation();
-		alert("al momento de guardar el post , su ubicacion sera guardada")
+		alert("al momento de guardar el post , su ubicacion sera guardada");
 	});
 
+
+
+
+
 	});
+
+jQuery(document).ready(function($) {
+	  var range= $('#range');
+	  $('#km').text(range.val()+"km");
+    range.change(function(event) {
+    	$('#km').text(range.val()+"km");
+
+    });
+});

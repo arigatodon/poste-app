@@ -7,6 +7,7 @@
     <%= form_tag search_nearposts_path, :class => "row" do  %> 
       <div class="col-md-2 col-md-offset-4">
       <%= range_field_tag :range, in: 1...100, :step => '.1' %>
+      <span id="km"></span>
       </div>
 
       <div class="col-md-2">
