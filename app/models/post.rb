@@ -1,4 +1,5 @@
 class Post < ActiveRecord::Base
+	acts_as_votable
 	has_many :comments ,dependent: :destroy
 	mount_uploader :image, ImageUploader
 	
@@ -7,3 +8,4 @@ class Post < ActiveRecord::Base
     after_validation :geocode, if: ->(obj) { obj.address.present? && obj.address_changed? }
     after_validation :reverse_geocode
 end
+

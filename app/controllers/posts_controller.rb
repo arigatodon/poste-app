@@ -26,11 +26,26 @@ class PostsController < ApplicationController
   end
 
   def search
-
     @posts =  Post.near([-33.438687,-70.6409769],params[:range])
     redirect_to root_path , alert: "hola"
-
   end
+
+  def upvote 
+    @post = Post.find(params[:id])
+    @post.upvote_by current_user
+    redirect_to :back
+  end  
+
+  def downvote
+    @post = Post.find(params[:id])
+    @post.downvote_by current_user
+    redirect_to :back
+  end
+
+
+
+
+
   # POST /posts
   # POST /posts.json
   def create

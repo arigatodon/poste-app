@@ -2,11 +2,13 @@ Rails.application.routes.draw do
   get 'locations/get_address'
   devise_for :users
   resources :posts do
-    resources :comments, only: [:create]
-     resources :comments, only: [:index]
-     
-
+    member do
+     put "like", to: "posts#upvote"
+     put "dislike", to: "posts#downvote"
     end
+    resources :comments, only: [:create]
+     resources :comments, only: [:index]     
+  end
     get 'get_address', to: 'locations#get_address'
     post 'search_nearposts', to: 'posts#search'  # esta recibiendo un params[:range]
   # The priority is based upon order of creation: first created -> highest priority.
