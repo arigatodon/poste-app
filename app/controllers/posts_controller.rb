@@ -26,10 +26,10 @@ class PostsController < ApplicationController
   end
 
   def search
-   if params[:range].to_i > 0
-    @posts =  Post.near(params[:range])
-   end
-   redirect_to root_path
+
+    @posts =  Post.near([-33.438687,-70.6409769],params[:range])
+    redirect_to root_path , alert: "hola"
+
   end
   # POST /posts
   # POST /posts.json
