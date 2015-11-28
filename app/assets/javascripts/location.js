@@ -1,6 +1,7 @@
 $(document).on("page:change", function(){
 
 	function geoSuccess(position) {
+		var range = $('#range').val();
 		var lat = position.coords.latitude;
 		var lon = position.coords.longitude;
 
@@ -8,12 +9,13 @@ $(document).on("page:change", function(){
 		$('.js-longitude').val(lon);
 
 		$.ajax({
-			url:'/get_address',
+			url:'/search_nearposts',
 			type: 'GET',
 			dataType: 'script',
 			data: {
 				latitude: lat,
 				longitude: lon,
+				range: range
 			}
 		});
 	}
@@ -30,9 +32,6 @@ $(document).on("page:change", function(){
 		}
 	}
 
-	if($('.registrations.new').length > 0) {
-		getLocation();
-	}
 
 	$('.js-getlocation').on('click', function(event) {
 		event.preventDefault();

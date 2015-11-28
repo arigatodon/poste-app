@@ -24,10 +24,16 @@ class PostsController < ApplicationController
   # GET /posts/1/edit
   def edit
   end
+  def getaddress
+    
+  end
 
   def search
-    @posts =  Post.near([-33.438687,-70.6409769],params[:range])
-    redirect_to root_path , alert: "hola"
+    
+    @posts =  Post.near(@user, params[:range])
+    respond_to do |f|
+      f.js
+    end
   end
 
   def upvote 
