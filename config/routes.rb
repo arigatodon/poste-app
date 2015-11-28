@@ -4,8 +4,11 @@ Rails.application.routes.draw do
   resources :posts do
     resources :comments, only: [:create]
      resources :comments, only: [:index]
+     
+
     end
     get 'get_address', to: 'locations#get_address'
+    post 'search_nearposts', to: 'posts#search'  # esta recibiendo un params[:range]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

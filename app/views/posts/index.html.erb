@@ -1,11 +1,17 @@
 <p id="notice"><%= notice %></p>
-<div class="row">
+
+<%= form_tag search_nearposts_path, :class => "row" do  %>
+ 
   <div class="col-md-2">
-
-  <%= range_field_tag 'range', in: 1...100, :step => '.1' %>
+  <%= range_field_tag :range, in: 1...100, :step => '.1' %>
   </div>
-</div>
 
+  <div class="col-md-2">
+  <%= submit_tag "buscar" %> 
+    <%# button_to "buscar", search_nearposts_path, :class => "boton"  %>
+  </div>
+
+<% end %>
 
 <h1 class="container">Anuncios</h1>
     <%= paginate(@posts) %>

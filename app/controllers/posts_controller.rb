@@ -24,12 +24,12 @@ class PostsController < ApplicationController
   # GET /posts/1/edit
   def edit
   end
-  
-  def search
 
-   if params[:range].present?
-    @post =  Post.near(params[:range])
+  def search
+   if params[:range].to_i > 0
+    @posts =  Post.near(params[:range])
    end
+   redirect_to root_path
   end
   # POST /posts
   # POST /posts.json
