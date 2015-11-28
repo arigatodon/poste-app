@@ -2,6 +2,8 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
+
+
   # GET /posts
   # GET /posts.json
   def index
@@ -22,7 +24,13 @@ class PostsController < ApplicationController
   # GET /posts/1/edit
   def edit
   end
+  
+  def search
 
+   if params[:range].present?
+    @post =  Post.near(params[:range])
+   end
+  end
   # POST /posts
   # POST /posts.json
   def create
@@ -62,6 +70,7 @@ class PostsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
