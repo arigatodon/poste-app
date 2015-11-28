@@ -3,7 +3,10 @@
     <div class="navbar-header">
       <a class="navbar-brand" href="<%= root_path %>">Inicio	</a>
     </div>
-		
+    <ul class="nav navbar-nav">	
+		<li><%= link_to 'nueva publicacion', new_post_path %></li>	
+	</ul>
+	
 	 <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
 		<li><%= link_to "salir", destroy_user_session_path, method: "delete" %></li>
