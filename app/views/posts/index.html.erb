@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1 class="container">Anuncios</h1>
-
+    <%= paginate(@posts) %>
 
     <% @posts.each do |post| %>
      
@@ -29,7 +29,7 @@
        </div>
     <% end %>
 
-
+    <%= paginate(@posts) %>
 <br>
 
 <%= link_to 'nueva publicacion', new_post_path, class:"btn btn-success" %>
