@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get 'locations/get_address'
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
   resources :posts do
     member do
      put "like", to: "posts#upvote"
@@ -9,7 +9,10 @@ Rails.application.routes.draw do
     resources :comments, only: [:create]
      resources :comments, only: [:index]     
   end
-    get 'search_nearposts', to: 'posts#search'  # esta recibiendo un params[:range]
+    get 'search_nearposts', to: 'posts#search' 
+    get '/entrar', to: 'authentications#index', as: 'entrar'  
+
+   # esta recibiendo un params[:range]
    # get 'posts#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -7,13 +7,13 @@ Devise.setup do |config|
   # Devise will use the `secret_key_base` on Rails 4+ applications as its `secret_key`
   # by default. You can change it below and use your own secret key.
   # config.secret_key = '590c410bcbd8060b2b90be0afa46f6fb7270d7687dcb27c053d9d822fa22ff2540fccc96ed1fbfcbb602999b95405888ce00c493355243dc95f2601998dc66c4'
-
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
   config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
-
+  
+  config.omniauth :facebook, ENV['app_id'], ENV['app_secret'], scope: 'public_profile,email'
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
 
@@ -236,8 +236,7 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
-  config.omniauth :twitter, 'token','token_secret'  
-  config.omniauth :facebook, 'app_id', 'app_secret', {:scope => 'email,user_birthday,read_stream'}  
+ 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.
