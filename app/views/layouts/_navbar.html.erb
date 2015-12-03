@@ -6,6 +6,9 @@
     <ul class="nav navbar-nav">	
 		<li><%= link_to 'nueva publicacion', new_post_path %></li>	
 	</ul>
+	 <ul class="nav navbar-nav">	
+		<li><%= link_to 'posts guardados', favorite_posts_index_path %></li>	
+	</ul>
 	
 	 <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>

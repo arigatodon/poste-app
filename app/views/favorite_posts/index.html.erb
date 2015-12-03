@@ -1,0 +1,18 @@
+<h1 class="container"> Publicaciones guardadas</h1>
+
+<% current_user.favorites.each do |post| %>  
+<div class="table table-condensed"></div>   	
+	<table class="table table-condensed">
+		<tr>
+		  <th class="active">Titulo</th>
+		  <th class="active">Contenido</th>
+		  <th class="active">Telefono</th>
+		  <th class="active">Quitar de marcadores</tr>
+		  <td class="active"><%= post.title %></td>
+		  <td class="active"><%= post.content %></td>
+		  <td class="active"><%= post.phone %></td>
+		  <td class="danger">borrar</td>		  
+		</tr>
+	</table>
+</div
+<%end  %>

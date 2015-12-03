@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'favorite_posts/index'
+
   get 'locations/get_address'
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
   resources :posts do
