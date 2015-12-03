@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
   has_many :authentications, :dependent => :delete_all  
   has_many :posts
   has_many :comments
+  has_many :favorite_posts
+  has_many :favorites, through: :favorite_posts, source: :post
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook]
 

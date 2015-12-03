@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'locations/get_address'
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
   resources :posts do
+    put :favorite, on: :member
     member do
      put "like", to: "posts#upvote"
      put "dislike", to: "posts#downvote"

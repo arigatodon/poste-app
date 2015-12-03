@@ -26,6 +26,10 @@
 <% end %>
 </div>
 
+<% if current_user %>
+  <%= link_to "favorite",   favorite_post_path(@post, type: "favorite"), method: :put %>
+  <%= link_to "unfavorite", favorite_post_path(@post, type: "unfavorite"), method: :put %>
+<% end %>
 <div class="container">
 <%= link_to 'Edit', edit_post_path(@post) %> 
 

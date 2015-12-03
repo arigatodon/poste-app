@@ -1,6 +1,9 @@
 class Post < ActiveRecord::Base
 	acts_as_votable
+	belongs_to :user
 	has_many :comments ,dependent: :destroy
+	has_many :favorite_posts
+	has_many :favorited_by, through: :favorite_posts, source: :user
 	mount_uploader :image, ImageUploader
 	
 	reverse_geocoded_by :latitude, :longitude
