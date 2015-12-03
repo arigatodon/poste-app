@@ -14,22 +14,17 @@
  <div class="container">
   <%= @post.address %>
 </div>
-<div class="container">
-<%= link_to like_post_path(@post), method: :put do %>
- <%= image_tag("like.jpg", class: 'potito') %> 
-  <%= @post.get_upvotes.size %>
-<% end %>
 
-<%= link_to dislike_post_path(@post), method: :put do %>
-  <%= image_tag("dislike.jpg", class: 'potito') %> 
-  <%= @post.get_downvotes.size %>
-<% end %>
+<%= render partial: "likes/form" %>
+
+<div class="container">
+	<% if current_user && current_user.favorites.exists? %>
+	  <%= link_to "borrar de favoritos", favorite_post_path(@post, type: "unfavorite"), method: :put %>
+		<% else %>
+	  <%= link_to "añadir a favoritos",   favorite_post_path(@post, type: "favorite"), method: :put %>
+	<% end %>
 </div>
 
-<% if current_user %>
-  <%= link_to "favorite",   favorite_post_path(@post, type: "favorite"), method: :put %>
-  <%= link_to "unfavorite", favorite_post_path(@post, type: "unfavorite"), method: :put %>
-<% end %>
 <div class="container">
 <%= link_to 'Edit', edit_post_path(@post) %> 
 
