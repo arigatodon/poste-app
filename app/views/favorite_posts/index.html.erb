@@ -9,7 +9,10 @@
 		  <th class="active">Quitar de marcadores</tr>
 		  
 		<% current_user.favorites.each do |post| %>  
-		  <td class="active"><%= post.title %></td>
+		  <td class="active" ><%= link_to post.title, post_path(post) %></a>
+		
+
+		  </td>
 		  <td class="active"><%= post.phone %></td>
 		  <td class="danger"><%= link_to "borrar", favorite_post_path(post, type: "unfavorite"), method: :put %></td>	
 		</tr>
