@@ -14,6 +14,7 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     @comments = @post.comments.reverse
+   @post =Post.find(params[:id])
   end
 
   # GET /posts/new

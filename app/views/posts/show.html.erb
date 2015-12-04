@@ -18,11 +18,11 @@
 <%= render partial: "likes/form" %>
 
 <div class="container">
-	<% if current_user && current_user.favorites.exists? %>
+	<%# if  @post.favorited_by? current_user %>
 	  <%= link_to "borrar de favoritos", favorite_post_path(@post, type: "unfavorite"), method: :put %>
-		<% else %>
+		<% $else %>
 	  <%= link_to "añadir a favoritos",   favorite_post_path(@post, type: "favorite"), method: :put %>
-	<% end %>
+	<% #end %>
 </div>
 
 <div class="container">
