@@ -37,7 +37,7 @@ h2{
 .black{
 	padding-top: 40px;
 	width: 100%;
-	background-color: black;
+	background-color: #f9f9f9;
 	padding-bottom: 40px;
 
 }
@@ -46,4 +46,10 @@ h2{
 }
 .plop{
 	margin-bottom: 80px;
+}
+.navbar{
+	margin-bottom: 0px;
+}
+.img-responsive{
+	text-align: center;
 }

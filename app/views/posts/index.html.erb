@@ -1,43 +1,25 @@
-<p id="notice"><%= notice %></p>
-    <div class="container">
-    Busca publicaciones cerca
-    <%= form_tag search_nearposts_path, :class => "row" do  %> 
-      <div class="col-md-2 col-md-offset-4">
-      <%= range_field_tag :range, in: 1...100, :step => '.1' %>
-      <span id="km"></span>
-      </div>
-    </div>
-      <div class="col-md-2">
-      <%= submit_tag "buscar"  %> 
-      </div>
-    <% end %>
-
-   <div class="container"> <%= paginate(@posts)%> </div>
-    <% @posts.each do |post| %>
-     
-       <h3 class="container"><%= link_to post.title ,post %></h3>
-  
-      <div class="container">
-        <%= image_tag(post.image) %>
-      </div>
-
-       <div class="container">
-         <%= post.content %>
-       </div>
+<span id="notice"><%= notice %></span>
+  <div class="container"><%= paginate(@posts)%>
+    <div class="row"> <% @posts.each do |post| %>
+          <div class="col-md-7">
+            <%= image_tag post.image, class:"img-responsive"  %>
+          </div>
+        <div class="col-md-5">
+          <h3 ><%= link_to post.title ,post %></h3>
+          <%= post.content %>
+          <%= post.phone %>
+          <%= post.address %>
+        </div>
+    </div>    
+  </div>
        
-       <div class="container">
-         <%= post.phone %>
-       </div>
-       <div class="container">
-         <%= post.address %>
-       </div>
-       <div class="container">
+    <div class="container">
         <% @posts.each do |post| %>
         <h4>
           Subido <%= time_ago_in_words(post.created_at) %> 
         </h4>
       <% end %>
-      </div>
+    </div>
        <div class="container">
        <a href="posts/<%= post.id %>" class="btn btn-default">Ver</a>
        <a href="<%= edit_post_path(post) %>" class="btn btn-default">Editar</a>

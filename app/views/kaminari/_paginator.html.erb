@@ -7,7 +7,7 @@
     paginator:     the paginator that renders the pagination tags inside
 -%>
 <%= paginator.render do -%>
-  <nav class="pagination">
+  <nav class="pagination" style="margin-top: 5px; margin-bottom: 5px;">
     
     <%= prev_page_tag unless current_page.first? %>
     <%= next_page_tag unless current_page.last? %>
