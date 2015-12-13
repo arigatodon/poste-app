@@ -14,12 +14,13 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     @comments = @post.comments.reverse
-   @post =Post.find(params[:id])
+    @post =Post.find(params[:id])
   end
 
   # GET /posts/new
   def new
     @post = Post.new
+    @categories = Category.all
   end
 
   # GET /posts/1/edit
@@ -118,6 +119,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :content, :image, :phone, :address ,:longitude, :latitude)
+      params.require(:post).permit(:title, :content, :image, :phone, :address ,:longitude, :latitude,:category_id)
     end
 end

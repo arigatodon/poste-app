@@ -5,6 +5,23 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Post.destroy_all
+Category.destroy_all
+
+categories = []
+
+categories << Category.create(name: 'venta')
+categories << Category.create(name: 'busco')
+categories << Category.create(name: 'evento')
+categories << Category.create(name: 'oportunidad')
+categories << Category.create(name: 'regalo')
+categories << Category.create(name: 'servicio')
+categories << Category.create(name: 'necesito')
+categories << Category.create(name: 'educacion')
+categories << Category.create(name: 'musica')
+
+
+
 posts = []
 
 20.times do |p|

@@ -10,6 +10,9 @@
   <%= @post.content %>
  </div>
  <div class="container">
+ 	Categoria : <%= @post.category.name if @post.category %>
+ </div>
+ <div class="container">
   <%= @post.phone %>
   </div>
  <div class="container">

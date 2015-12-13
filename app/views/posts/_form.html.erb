@@ -19,6 +19,11 @@
     <%= f.label :content %><br>
     <%= f.text_area :content %>
   </div>
+  
+  <div class="form-group">
+    <%= f.label 'Categoria' %><br>
+    <%= f.collection_select :category_id, Category.all, :id, :name, {prompt: 'Elije una Categoria'}, {class: 'form-control'} %>
+  </div>
   <div class="field">
     <%= f.label :imagen %><br>
     <%= f.file_field :image , class: "container" %>
