@@ -45,7 +45,7 @@ $(document).on("page:change", function(){
 
 	});
 
-jQuery(document).hashchange(function($) {
+jQuery(document).onload(function($) {
 	  var range= $('#range');
 	  $('#km').text(range.val()+"km");
     range.change(function(event) {

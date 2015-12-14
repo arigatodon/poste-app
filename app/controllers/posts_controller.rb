@@ -26,17 +26,12 @@ class PostsController < ApplicationController
   # GET /posts/1/edit
   def edit
   end
+  
   def getaddress
     
   end
 
-  def search
-    
-    @posts =  Post.near(@user, params[:range])
-    respond_to do |f|
-      f.js
-    end
-  end
+  
 
   def upvote 
     @post = Post.find(params[:id])

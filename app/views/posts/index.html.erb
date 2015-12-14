@@ -1,4 +1,18 @@
 <span id="notice"><%= notice %></span>
+
+    <div class="container">
+    Busca publicaciones cerca
+    <%= form_tag search_path,remote: true,  :class => "row" do  %> 
+      <div class="col-md-2 col-md-offset-4">
+      <%= range_field_tag :range, in: 1...100, :step => '.1' %>
+      <span id="km"></span>
+      </div>
+      <%= submit_tag "buscar"  %> 
+      
+    </div>
+      
+    <% end %>
+<!--
   <div class="container"><%= paginate(@posts)%>
     <div class="row"> <% @posts.each do |post| %>
           <div class="col-md-7">
@@ -21,12 +35,12 @@
       <% end %>
     </div>
        <div class="container">
-       <a href="posts/<%= post.id %>" class="btn btn-default">Ver</a>
-       <a href="<%= edit_post_path(post) %>" class="btn btn-default">Editar</a>
-       <%= button_to 'Destruir', post, method: :delete, data: { confirm: 'Are you sure?' },class:"btn btn-default" %>
+        <a href="posts/<%= post.id %>" class="btn btn-default">Ver</a>
+        <a href="<%= edit_post_path(post) %>" class="btn btn-default">Editar</a>
+        <%= button_to 'Destruir', post, method: :delete, data: { confirm: 'Are you sure?' },class:"btn btn-default" %>
        
        </div>
     <% end %>
 <br>
-
+-->
 
