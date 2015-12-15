@@ -5,11 +5,11 @@ $(document).on("page:change", function(){
 		var lat = position.coords.latitude;
 		var lon = position.coords.longitude;
 
+		
 		$('.js-latitude').val(lat);
 		$('.js-longitude').val(lon);
-
 		$.ajax({
-			url:'/search_nearposts',
+			url:'/search',
 			type: 'GET',
 			dataType: 'script',
 			data: {
@@ -39,17 +39,18 @@ $(document).on("page:change", function(){
 		alert("al momento de guardar el post , su ubicacion sera guardada");
 	});
 
-
-
-
-
+	$('#search_id').on('click', function(event) {
+		event.preventDefault();
+		getLocation();
+		
 	});
-
-jQuery(document).onload(function($) {
-	  var range= $('#range');
-	  $('#km').text(range.val()+"km");
-    range.change(function(event) {
-    	$('#km').text(range.val()+"km");
-
-    });
 });
+
+$(document).on('page:change', function() {
+	var range = $('#range');
+	$('#km').text(range.val()+" km");
+	range.change(function(event) {
+		$('#km').text(range.val()+" km");
+	});
+});
+

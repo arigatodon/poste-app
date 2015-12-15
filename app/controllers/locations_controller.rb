@@ -8,11 +8,5 @@ class LocationsController < ApplicationController
     end
   end
 
-  def search
-    @user = current_user
-    @posts =  Post.near(@user, params[:range])
-    respond_to do |f|
-      f.js
-    end
-  end
+
 end

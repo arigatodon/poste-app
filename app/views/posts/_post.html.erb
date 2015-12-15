@@ -1,0 +1,21 @@
+ <div class="container"><%# paginate(@posts)%>
+    <div class="row"> 
+          <div class="col-md-7">
+            <%= image_tag post.image, class:"img-responsive"  %>
+          </div>
+        <div class="col-md-5">
+          <h3 ><%= link_to post.title ,post %></h3>
+          <%= post.content %>
+          <%= post.phone %>
+          <%= post.address %>
+        </div>
+    </div>    
+  </div>
+        <h4 class="container">
+          Subido <%= time_ago_in_words(post.created_at) %> 
+        </h4>
+       <div class="container">
+        <a href="posts/<%= post.id %>" class="btn btn-default">Ver</a>
+        <a href="<%= edit_post_path(post) %>" class="btn btn-default">Editar</a>
+        <%= button_to 'Destruir', post, method: :delete, data: { confirm: 'Are you sure?' },class:"btn btn-default" %>   
+ </div>

@@ -7,9 +7,19 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all.page(params[:page]).per(1)
+    @posts = Post.all
   end
 
+  def search 
+    lat = params[:latitude]
+    lng = params[:longitude]
+    range = params[:range] 
+    @posts =  Post.near([lat, lng], range)
+    respond_to do |format|
+      format.js
+    end
+
+  end
   # GET /posts/1
   # GET /posts/1.json
   def show

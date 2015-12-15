@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:create]
      resources :comments, only: [:index]     
   end
-    get 'search', to: 'posts#search' 
+    get '/search', to: 'posts#search' 
     get '/entrar', to: 'authentications#index', as: 'entrar'  
 
    # esta recibiendo un params[:range]
