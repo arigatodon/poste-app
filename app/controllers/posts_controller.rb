@@ -11,6 +11,7 @@ class PostsController < ApplicationController
   end
 
   def search 
+   
     lat = params[:latitude]
     lng = params[:longitude]
     range = params[:range] 
