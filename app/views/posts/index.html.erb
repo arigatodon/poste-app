@@ -1,7 +1,10 @@
 <span id="notice"><%= notice %></span>
 
- 
-  <div class="post-list">
-      <%= render @posts %>
-  </div>    
+<div class="paginate container">
+	<%= paginate @posts %>
+</div> 
+
+<div class="post-list">
+    <%= render @posts %>
+</div>    
 <br>
