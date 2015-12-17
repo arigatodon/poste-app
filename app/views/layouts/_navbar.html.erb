@@ -7,13 +7,14 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="<%= root_path %>">Inicio</a>
+      <a class="navbar-brand" id="menu-toggle" href="#menu-toggle"><span class="glyphicon glyphicon-cog"></span></a>
     </div>
 
     <div style="height: 1px;" aria-expanded="false" class="navbar-collapse collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
+      <li><a href="<%= favorite_posts_index_path %>"><span class="glyphicon glyphicon-list"></span></a></li>
   		<li><a href="<%=  new_post_path %>">nueva publicacion</a></li>
-        <li><a href="<%= favorite_posts_index_path %>">post guardados</a></li>
+      <li><a href="#menu-toggle"  id="menu-toggle"></a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>  <% if user_signed_in? %>

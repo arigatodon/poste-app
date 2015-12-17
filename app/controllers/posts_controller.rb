@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.all.page(params[:page]).per(1)
   end
 
   def search 
@@ -16,14 +16,14 @@ class PostsController < ApplicationController
     lng = params[:longitude]
     range = params[:range] 
     
-    @posts =  Post.near([lat, lng], range)
+    @posts =  Post.near([lat, lng], range).page(params[:page]).per(1)
     respond_to do |format|
-      format.js
+      format.js 
     end
 
   end
   # GET /posts/1
-  # GET /posts/1.json
+  # GET /posts/1.json 
   def show
     @comments = @post.comments.reverse
     @post =Post.find(params[:id])
@@ -126,6 +126,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :content, :image, :phone, :address ,:categories_ids [])
+      params.require(:post).permit(:title, :content, :image, :phone, :address ,:category_id)
     end
 end

@@ -1,19 +1,7 @@
 <span id="notice"><%= notice %></span>
 
-  <div class="container">
-    Busca publicaciones cerca
-    <%= form_tag search_path,:method => 'get',remote: true,  :class => "row" do  %> 
-      <div class="col-md-2 col-md-offset-4">
-      <%= range_field_tag :range, in: 1...100, :step => '.1' %>
-      <span id="km"> 0</span>
-      </div>
-      <%= submit_tag "Buscar" , :id=> "search_id" %> 
-    <% end %>
-  </div>
-      
-
-
- <div class="post-list">
+ 
+  <div class="post-list">
       <%= render @posts %>
-    </div>    
+  </div>    
 <br>

@@ -1,0 +1,26 @@
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                   <h3>
+                       Preferencias
+                   </h3>
+                </li>
+                <li>
+                <%= form_tag search_path,:method => 'get',remote: true  do  %> 
+                    <span class="label">
+                        Rango 
+                        <span id="km"></span>
+                    </span>
+                </li>
+                <li >
+                        <%= range_field_tag :range, in: 1...100, :step => '.1'%>
+                </li>
+                <li>
+                        <%= submit_tag "Buscar" , :id=> "search_id" , :class=> "btn btn-default"%> 
+                <% end %>  
+                </li>
+                
+            </ul>
+        </div>

@@ -11,21 +11,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= render "layouts/navbar" %>
-<%= yield %>
-
-<footer class="container black"> 
-	<div class="row">
-	  <div class="col-md-4 text-muted">quienes somos</div>
-	  <div class="col-md-4 text-muted">quien eres</div>
-  	  <div class="col-md-4 text-muted">quienes vamos hacer</div>
-	</div>
-	<div class="row">
-	  <div class="col-md-4 text-muted"></div>
-	  <div class="col-md-4 text-muted" style="margin-top: 10px;">©2015 - poste-app</div>
-  	  <div class="col-md-4 text-muted"></div>
-	</div>
-</footer>
+<div id="wrapper" class="toggled">
+	<%= render "layouts/aside" %>
+	<%= render "layouts/navbar" %>
+		<%= yield %>
+	<%= render "layouts/footer" %>
+</div>
+	 <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
 </body>
 </html>
