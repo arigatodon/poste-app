@@ -19,6 +19,7 @@ class PostsController < ApplicationController
     @posts =  Post.near([lat, lng], range).page(params[:page]).per(1)
     respond_to do |format|
       format.js 
+
     end
 
   end
