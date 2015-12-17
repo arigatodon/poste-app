@@ -13,11 +13,11 @@ Rails.application.routes.draw do
     end
    
     member do
-      post 'set_category'
+      post 'category'
     end
 
     collection do
-      post 'set_categories'
+      post 'categories'
     end
 
     resources :comments, only: [:create]

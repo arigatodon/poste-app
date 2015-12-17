@@ -15,6 +15,7 @@ class PostsController < ApplicationController
     lat = params[:latitude]
     lng = params[:longitude]
     range = params[:range] 
+    
     @posts =  Post.near([lat, lng], range)
     respond_to do |format|
       format.js
@@ -125,6 +126,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :content, :image, :phone, :address ,:longitude, :latitude,:category_id)
+      params.require(:post).permit(:title, :content, :image, :phone, :address ,:categories_ids [])
     end
 end
