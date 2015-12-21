@@ -1,7 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
-
+load_and_authorize_resource
 
 
   # GET /posts
@@ -10,12 +8,10 @@ class PostsController < ApplicationController
     @posts = Post.all.page(params[:page]).per(1)
   end
 
-  def search 
-   
+  def search  
     lat = params[:latitude]
     lng = params[:longitude]
     range = params[:range] 
-    
     @posts =  Post.near([lat, lng], range).page(params[:page]).per(1)
     respond_to do |format|
       format.js
@@ -80,7 +76,7 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
-
+    @post.user = current_user
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }

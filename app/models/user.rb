@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+
+  before_save :default_role
+  
   has_many :authentications, :dependent => :delete_all  
   has_many :posts
   has_many :comments
@@ -10,6 +13,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook]
 
+  enum role: [:admin, :client, :guest]
+
   def self.from_omniauth(auth)
       where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
         user.provider = auth.provider
@@ -18,4 +23,9 @@ class User < ActiveRecord::Base
         user.password = Devise.friendly_token[0,20]
       end
   end
+
+  def default_role
+    self.role ||= 1 
+  end
+
 end

@@ -18,9 +18,9 @@
  <div class="container">
   <%= @post.address %>
 </div>
-
+<% if can? :upvote ,@post %>
 <%= render partial: "likes/form" %>
-
+	<% end  %>
 <div class="container"> 
 	<% if  @post.user_favorites.include? current_user %>
 	  <%= link_to "borrar de favoritos", favorite_post_path(@post, type: "unfavorite"), method: :put %>
@@ -30,8 +30,9 @@
 </div>
 
 <div class="container">
-<%= link_to 'Edit', edit_post_path(@post) %> 
-
+<% if can? :edit, @post %>
+	<%= link_to 'Edit', edit_post_path(@post) %> 
+<% end %>
 <%= link_to 'Back', posts_path %>
 </div>
 

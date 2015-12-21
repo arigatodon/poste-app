@@ -16,6 +16,10 @@
         </h4>
        <div class="container">
         <a href="posts/<%= post.id %>" class="btn btn-default">Ver</a>
+        <% if can? :destroy , post %>
         <a href="<%= edit_post_path(post) %>" class="btn btn-default">Editar</a>
+        <% end %>
+        <% if can? :destroy, post %>
         <%= button_to 'Destruir', post, method: :delete, data: { confirm: 'Are you sure?' },class:"btn btn-default" %>   
+        <% end %>
  </div>

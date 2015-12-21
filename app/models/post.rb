@@ -5,16 +5,15 @@ class Post < ActiveRecord::Base
 	has_many :favorite_posts
 	has_many :user_favorites, through: :favorite_posts, :source => :user
 	belongs_to :user
-	
+	belongs_to :category
 	# has_many :post_categories, dependent: :destroy
  	# has_many :categories, through: :post_categories
- 	 belongs_to :category
-
+ 	 
 	mount_uploader :image, ImageUploader
 	
 	reverse_geocoded_by :latitude, :longitude
 	geocoded_by :address
-    after_validation :geocode, if: ->(obj) { obj.address.present? && obj.address_changed? }
-    after_validation :reverse_geocode
+    after_validation :geocode, if: ->(obj){ obj.address.present? && obj.address_changed? }
+    after_validation :reverse_geocode,   if: ->(obj){ obj.address.present? && obj.address_changed? }
 end
 
