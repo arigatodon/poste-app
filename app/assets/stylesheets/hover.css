@@ -1,0 +1,40 @@
+*{
+	margin:0px;
+	padding:0px;
+ 
+}
+
+div.contenedor{
+	margin:15px;
+	width:350px;
+	height:300px;
+	overflow: hidden;
+}
+div.imagen{
+	width:350px;
+	height:300px;
+	overflow: hidden;
+	-webkit-transition:height .4s ;
+	-moz-transition:height .4s ;
+	-ms-transition:height .4s ;
+	-o-transition:height .4s ;
+
+}
+div.info{
+	width: 350px;
+	height: 200px;
+
+	overflow: hidden;
+	-webkit-transition:height .4s ;
+	-moz-transition:height .4s ;
+	-ms-transition:height .4s ;
+	-o-transition:height .4s ;
+}
+img.imagen{
+	
+}
+
+
+div.contenedor:hover div.imagen{
+	height: 210px;
+}

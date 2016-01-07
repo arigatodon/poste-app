@@ -3,9 +3,9 @@
 <div class="container">
  <h2> <%= @post.title %></h2>
  </div>
-<div class="container">
-  <%= image_tag(@post.image, class:"img-responsive") %>
- </div>
+
+  <%= image_tag(@post.image, class:"img-responsive container") %>
+ 
  <div class="container">
   <%= @post.content %>
  </div>
@@ -19,16 +19,17 @@
   <%= @post.address %>
 </div>
 <% if can? :upvote ,@post %>
-<%= render partial: "likes/form" %>
-	<% end  %>
-<div class="container"> 
-	<% if  @post.user_favorites.include? current_user %>
-	  <%= link_to "borrar de favoritos", favorite_post_path(@post, type: "unfavorite"), method: :put %>
-		<% else %>
-	  <%= link_to "añadir a favoritos",   favorite_post_path(@post, type: "favorite"), method: :put %>
-	<% end %>
-</div>
-
+  <%= render partial: "likes/form" %>
+<% end  %>
+  <% if can? :favorite ,@post %>
+	  <div class="container"> 
+      <% if  @post.user_favorites.include? current_user %>
+        <%= link_to "borrar de favoritos", favorite_post_path(@post, type: "unfavorite"), method: :put %>
+      <% else %>
+        <%= link_to "añadir a favoritos",   favorite_post_path(@post, type: "favorite"), method: :put %>
+      <% end %>
+    </div>}
+  <% end %>
 <div class="container">
 <% if can? :edit, @post %>
 	<%= link_to 'Edit', edit_post_path(@post) %> 

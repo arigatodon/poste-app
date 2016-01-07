@@ -1,20 +1,34 @@
- <div class="container">
-    <div class="row"> 
-          <div class="col-md-7">
-            <%= image_tag post.image, class:"img-responsive"  %>
+<div class="container">
+    <!-- aqui la imagen hover-->
+    <div class="contenedor"> 
+          <div class="imagen">
+            <%= image_tag post.image, class:"img-responsive imagen imgfolder"  %>
           </div>
-        <div class="col-md-5">
-          <h3 ><%= link_to post.title ,post %></h3>
-          <%= post.content %>
-          <%= post.phone %>
-          <%= post.address %>
+          <div class="info">
+            <%= link_to post.title , post  %>
+            <%= post.content %>          
+          </div>
+    </div> 
+          <!-- aqui el favorito-->
+        <% if can? :favorite ,@post %>  
+          <div class="container"> 
+           <!-- Si el usuario tiene  incluido en favorito mostrar borrar o si no agregar-->
+            <% if  post.user_favorites.include? current_user %>
+              <%= link_to "borrar de favoritos", favorite_post_path(post, type: "unfavorite"), method: :put %>
+              <% else %>
+              <%= link_to "añadir a favoritos",  favorite_post_path(post, type: "favorite"), method: :put %>
+            <% end %>
+          </div>
+        <% end %>
+
+        <div class="container">
+            Telefono : <%= post.phone %>  
         </div>
-    </div>    
-  </div>
         <h4 class="container">
           Subido <%= time_ago_in_words(post.created_at) %> 
         </h4>
-       <div class="container">
+                  <!-- botones del crud-->
+      <div class="container">
         <a href="posts/<%= post.id %>" class="btn btn-default">Ver</a>
         <% if can? :destroy , post %>
         <a href="<%= edit_post_path(post) %>" class="btn btn-default">Editar</a>
@@ -22,4 +36,5 @@
         <% if can? :destroy, post %>
         <%= button_to 'Destruir', post, method: :delete, data: { confirm: 'Are you sure?' },class:"btn btn-default" %>   
         <% end %>
- </div>
+      </div>
+</div>

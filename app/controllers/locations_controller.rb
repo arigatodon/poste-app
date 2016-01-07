@@ -7,6 +7,4 @@ class LocationsController < ApplicationController
       format.js
     end
   end
-
-
 end

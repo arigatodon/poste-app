@@ -12,7 +12,7 @@ load_and_authorize_resource
     lat = params[:latitude]
     lng = params[:longitude]
     range = params[:range] 
-    @posts =  Post.near([lat, lng], range).page(params[:page]).per(1)
+    @posts =  Post.near([lat, lng], range)
     respond_to do |format|
       format.js
     end
@@ -121,6 +121,6 @@ load_and_authorize_resource
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :content, :image, :phone, :address ,:category_id)
+      params.require(:post).permit(:title, :content, :image, :phone, :address ,:latitude,:longitude,:category_id)
     end
 end

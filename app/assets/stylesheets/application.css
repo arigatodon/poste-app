@@ -23,9 +23,11 @@ h2{
 .btn-success{
 	text-align: center;
 }
+
 .invisible{
 	display: none;
 }
+
 .lolo{
 	border-color: gray;
 	border-radius: 2px;
@@ -52,4 +54,6 @@ h2{
 }
 .img-responsive{
 	text-align: center;
+	width: 550px;
+	 height: 420px;
 }

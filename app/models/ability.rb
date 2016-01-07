@@ -14,6 +14,7 @@ class Ability
              can :destroy, [Post] , user_id: user.id
              can :search, :all
               can :edit, [Post] , user_id: user.id
+              can :update, [Post] , user_id: user.id
               else
              can :read, :all
              can :search, :all
