@@ -5,9 +5,10 @@
 }
 
 div.contenedor{
-	margin:15px;
+	margin:15px auto;
 	width:350px;
 	height:300px;
+
 	overflow: hidden;
 }
 div.imagen{

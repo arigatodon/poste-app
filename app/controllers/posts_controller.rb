@@ -6,13 +6,17 @@ load_and_authorize_resource
   # GET /posts.json
   def index
     @posts = Post.all.page(params[:page]).per(1)
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def search  
     lat = params[:latitude]
     lng = params[:longitude]
     range = params[:range] 
-    @posts =  Post.near([lat, lng], range)
+    @posts =  Post.near([lat, lng], range).page(params[:page]).per(1)
     respond_to do |format|
       format.js
     end
