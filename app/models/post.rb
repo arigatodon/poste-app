@@ -16,5 +16,14 @@ class Post < ActiveRecord::Base
 	
     after_validation :geocode, if: ->(obj){ obj.address.present? && obj.address_changed? }
     after_validation :reverse_geocode,   if: ->(obj){ (obj.latitude.present? && obj.longitude.present?) and (obj.latitude_changed? || obj.longitude_changed?) }
-end
+    validates :phone, length: { is: 8 } 
+    validates :title, presence: true 
+    validates :image, presence: true 
+    validates :category, presence: true
+    if :address.present? or :latitude.present?
+    	validates :address , presence: true
+    end
+end 
+
+
 

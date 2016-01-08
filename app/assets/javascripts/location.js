@@ -53,6 +53,3 @@ $(document).on('page:change', function() {
 		$('#km').text(range.val()+" km");
 	});
 });
-
-		console.log('hola igor');
-		getLocation();

@@ -38,7 +38,9 @@
 </div>
 
 <div class="container">
-<%= render partial: "comments/form" %>
-<hr>
-<%= render partial: "comments/comment", collection: @comments %>
-</div>
+  <% if can? :create ,@Comment %>
+    <%= render partial: "comments/form" %>
+    <hr>
+  <% end %>
+  <%= render partial: "comments/comment", collection: @comments %>
+  </div>
