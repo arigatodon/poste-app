@@ -4,7 +4,6 @@ $(document).on("page:change", function(){
 		var range = $('#range').val();
 		var lat = position.coords.latitude;
 		var lon = position.coords.longitude;
-
 		
 		$('.js-latitude').val(lat);
 		$('.js-longitude').val(lon);

@@ -20,7 +20,8 @@ class Post < ActiveRecord::Base
     validates :title, presence: true 
     validates :image, presence: true 
     validates :category, presence: true
-    if :address.present? or :latitude.present?
+    
+    if :address.empty? or :latitude.empty?
     	validates :address , presence: true
     end
 end 

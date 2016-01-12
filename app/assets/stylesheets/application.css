@@ -13,6 +13,13 @@
  *= require_tree .
  *= require_self
  */
+body{
+	background: #ededed;
+}
+.navbar{
+	background: white;
+	box-shadow: 1px 1px 1px 1px rgba(50, 50, 50, 0.75);
+}
 h2{
 	text-align: center;
 }
@@ -39,8 +46,10 @@ h2{
 .black{
 	padding-top: 40px;
 	width: 100%;
-	background-color: #f9f9f9;
+	background: white;
 	padding-bottom: 40px;
+	box-shadow: 1px 1px 1px 1px rgba(50, 50, 50, 0.75);
+
 
 }
 .table-condensed{
@@ -56,4 +65,8 @@ h2{
 	text-align: center;
 	width: 550px;
 	 height: 420px;
+}
+.img{
+	width: 25px;
+	height: 25px;
 }
